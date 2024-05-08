@@ -31,8 +31,8 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/index.ts .
 COPY --from=prerelease /usr/src/app/package.json .
 
-LABEL version="1.0"
-LABEL description="Hello world image!"
+LABEL org.opencontainers.image.version="1.0"
+LABEL org.opencontainers.image.description="Hello world"
 
 # run the app
 USER bun
