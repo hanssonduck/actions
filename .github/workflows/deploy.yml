@@ -21,6 +21,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
       - id: push
         uses: docker/build-push-action@v5
         with:
