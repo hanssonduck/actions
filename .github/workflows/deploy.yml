@@ -24,8 +24,6 @@ jobs:
           labels: |
             org.opencontainers.image.description=Hello world description yeah.
           tags: |
-            type=schedule
-            type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
             type=sha
