@@ -1,6 +1,3 @@
-
-LABEL org.opencontainers.image.description="Hello World!"
-
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:1 as base
@@ -30,6 +27,11 @@ RUN bun test
 
 # copy production dependencies and source code into final image
 FROM base AS release
+
+LABEL org.opencontainers.image.source=https://github.com/hanssonduck/actions
+LABEL org.opencontainers.image.description="My container image"
+LABEL org.opencontainers.image.licenses=MIT
+
 COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/index.ts .
 COPY --from=prerelease /usr/src/app/package.json .
