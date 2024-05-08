@@ -31,6 +31,9 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/index.ts .
 COPY --from=prerelease /usr/src/app/package.json .
 
+LABEL version="1.0"
+LABEL description="Hello world image!"
+
 # run the app
 USER bun
 EXPOSE 3000/tcp
