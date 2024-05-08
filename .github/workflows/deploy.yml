@@ -27,8 +27,8 @@ jobs:
             type=ref,event=branch,priority=300
             type=ref,event=tag,priority=300
             type=ref,event=pr,priority=300
-            type=edge,priority=200
-            type=sha,priority=1000
+            type=edge,priority=2000
+            type=sha,priority=100
       - id: push
         uses: docker/build-push-action@v5
         with:
