@@ -24,11 +24,11 @@ jobs:
           labels: |
             org.opencontainers.image.description=Hello world description yeah.
           tags: |
-            type=edge
-            type=ref,event=branch
-            type=ref,event=tag
-            type=ref,event=pr
-            type=sha
+            type=ref,event=branch,priority=300
+            type=ref,event=tag,priority=300
+            type=ref,event=pr,priority=300
+            type=edge,priority=200
+            type=sha,priority=100
       - id: push
         uses: docker/build-push-action@v5
         with:
