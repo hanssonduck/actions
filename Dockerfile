@@ -1,3 +1,6 @@
+
+LABEL org.opencontainers.image.description="Hello World!"
+
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:1 as base
@@ -30,9 +33,6 @@ FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/index.ts .
 COPY --from=prerelease /usr/src/app/package.json .
-
-LABEL org.opencontainers.image.version 1.0
-LABEL org.opencontainers.image.description Hello world image
 
 # run the app
 USER bun
